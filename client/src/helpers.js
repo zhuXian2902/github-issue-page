@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'https://dry-wildwood-16356.herokuapp.com/api/issues';
+const API_URL = 'http://localhost:8000';
 
 export const createIssue = async (issue) => {
 	const { title, description } = issue;
@@ -14,16 +14,19 @@ export const createIssue = async (issue) => {
 };
 
 export const deleteIssue = async (id) => {
-	await axios.delete(`${API_URL}/${id}`);
+	await axios.delete(`${API_URL}/api/issues/${id}`);
 };
 
 export const getIssue = async (id) => {
-	const { data: data } = await axios.get(`${API_URL}/${id}`);
+	const { data: data } = await axios.get(`${API_URL}/api/issues/${id}`);
 	return data;
 };
 
 export const update = async (id, payload) => {
-	const { data: data } = await axios.patch(`${API_URL}/${id}`, payload);
+	const { data: data } = await axios.patch(
+		`${API_URL}/api/issues/${id}`,
+		payload
+	);
 	return data;
 };
 
@@ -35,6 +38,6 @@ export const getAllissues = async (value, page) => {
 		query += 'isOpen=false';
 	}
 
-	const { data: data } = await axios.get(`${API_URL}?${query}`);
+	const { data: data } = await axios.get(`${API_URL}/api/issues?${query}`);
 	return data;
 };
