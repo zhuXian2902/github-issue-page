@@ -18,7 +18,8 @@ import CreateIssue from './CreateIssue';
 import Page from './Page';
 import { getAllissues } from './helpers';
 import Loading from './Loading';
-
+// import dotenv from 'dotenv';
+// dotenv.config();
 const useStyles = makeStyles((theme) => ({
 	formControl: {
 		display: 'flex',
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+axios.defaults.baseURL = 'http://localhost:8000/api/';
 axios.interceptors.response.use(null, (error) => {
 	return Promise.reject(error);
 });
