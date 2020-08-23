@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-axios.defaults.baseURL = 'http://localhost:8000/api/';
+axios.defaults.baseURL = 'https://dry-wildwood-16356.herokuapp.com/api/';
 axios.interceptors.response.use(null, (error) => {
 	return Promise.reject(error);
 });
