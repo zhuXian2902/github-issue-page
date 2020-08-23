@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://dry-wildwood-16356.herokuapp.com';
 
 export const createIssue = async (issue) => {
 	const { title, description } = issue;
